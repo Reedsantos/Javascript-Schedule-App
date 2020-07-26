@@ -49,4 +49,29 @@ function save() {
   }
   localStorage.setItem("todos", JSON.stringify(toDoItems));
   displaySchedule();
-};
+}
+
+function displaySchedule() {
+
+  toDoItems = localStorage.getItem("todos");
+  toDoItems = JSON.parse(toDoItems);
+
+  for (var i = 0; i < toDoItems.length; i++) {
+    var itemHour = toDoItems[i].hour;
+    var itemText = toDoItems[i].text;
+
+    $("[data-hour=" + itemHour + "]").children("textarea").val(itemText);
+  }
+}
+
+$(document).ready(function () {
+  rowColor();
+
+  if (!localStorage.getItem("todos")) {
+    hourText();
+  }
+  currentDay.text(currentDate);
+
+  displaySchedule();
+  scheduleContainer.on("click", "button", save);
+});
