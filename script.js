@@ -1,3 +1,4 @@
+// Declare variables
 const currentDate = moment().format("dddd, MMMM Do");
 const currentHour = moment().format("H");
 const currentDay = $("#currentDay");
@@ -5,6 +6,7 @@ const scheduleContainer = $(".schedule");
 const timeRow = $(".time-row");
 var toDoItems = [];
 
+// Creates key value pair for each row in local storage
 function hourText() {
 
   timeRow.each(function () {
@@ -21,6 +23,7 @@ function hourText() {
   localStorage.setItem("todos", JSON.stringify(toDoItems));
 };
 
+// Function to change row color accoding to the time
 function rowColor() {
   timeRow.each(function () {
     var thisRow = $(this);
@@ -38,6 +41,7 @@ function rowColor() {
   });
 }
 
+// Saves text in text area to local storage
 function save() {
   var hourToUpdate = $(this).parent().attr("data-hour");
   var itemToAdd = (($(this).parent()).children("textarea")).val();
@@ -51,6 +55,7 @@ function save() {
   displaySchedule();
 }
 
+// Takes data from local storage and displays it 
 function displaySchedule() {
 
   toDoItems = localStorage.getItem("todos");
@@ -64,14 +69,21 @@ function displaySchedule() {
   }
 }
 
+// Fires as soon as the dom is loaded
 $(document).ready(function () {
   rowColor();
 
+  // If there are no key value pairs in the local storage it will create them
   if (!localStorage.getItem("todos")) {
     hourText();
   }
+
+  //Show current date
   currentDay.text(currentDate);
 
+  // Displays local storage
   displaySchedule();
+  // Save button saves text to local storage
   scheduleContainer.on("click", "button", save);
+
 });
