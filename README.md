@@ -1,5 +1,5 @@
 # Javascript-Schedule-App
-This was the 5th Homework for Unh Programming  Bootcamp. Heres the psudo code we recieved as guidelines.
+This was the 5th Homework for Unh Programming  Bootcamp. Heres the psudo code we recieved as guidelines and the link to the deployed app.
 
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
