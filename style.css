@@ -9,7 +9,7 @@
   }
   
   textarea {
-    background: rgb(131, 131, 253);
+    background: transparent;
     border: none;
     padding: 10px;
   }
@@ -23,14 +23,15 @@
     margin-bottom: 50px;
     padding: 50px;
   }
-
+  .schedule{
+    margin-bottom: 25px;
+  }
   .lead {
     margin-left: 100px;
     margin-right: 100px;
     padding-top: 25px;
     font-size: 25px;
   }
-
   .time-row {
     text-align: center;
     border-radius: 15px;
@@ -53,4 +54,16 @@
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     font-weight: bold;
+  }
+
+  .past {
+    background-color: #d4d8e8;
+  }
+  
+  .present {
+    background-color: rgb(131, 131, 253);
+  }
+  
+  .future {
+    background-color: lightgreen;
   }
